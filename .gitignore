@@ -1,0 +1,24 @@
+# Docker
+*.log
+docker-compose.override.yml
+.env
+
+# Kubernetes
+.kube/
+*.yaml
+*.yml
+
+# PowerShell
+*.ps1
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VSCode
+.vscode/
+
+# Python (if any used later)
+__pycache__/
+*.pyc
