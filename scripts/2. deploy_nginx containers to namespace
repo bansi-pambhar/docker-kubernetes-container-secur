@@ -1,0 +1,11 @@
+# PowerShell script to create namespaces and deploy nginx
+
+$namespaces = @("development", "production")
+
+foreach ($ns in $namespaces) {
+    kubectl create namespace $ns -o yaml --dry-run=client | kubectl apply -f -
+    kubectl run nginx-$ns --image=nginx:1.23-alpine -n $ns --restart=Always
+    kubectl expose pod nginx-$ns --port=80 --target-port=80 -n $ns --type=ClusterIP
+}
+
+Write-Host "NGINX deployed to development and production namespaces."
