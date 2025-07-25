@@ -1,24 +1,60 @@
-# Docker
-*.log
-docker-compose.override.yml
-.env
-
-# Kubernetes
-.kube/
-*.yaml
-*.yml
-
-# PowerShell
-*.ps1
-
-# Windows
+# OS-specific files
+.DS_Store
 Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# VSCode
-.vscode/
+# PowerShell history
+*.pshistory
 
-# Python (if any used later)
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Python cache files (if any scripts use Python)
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Environment variables / secrets
+.env
+.env.local
+*.pem
+*.key
+*.crt
+secrets.yaml
+credentials.json
+
+# Docker-related
+**/docker-compose.override.yml
+**/Dockerfile.old
+.dockerignore
+
+# Kubernetes-related
+.kube/
+*.yaml~      # backups or temp YAMLs
+
+# Build / output artifacts
+*.out
+*.exe
+*.zip
+*.tar.gz
+*.tar
+*.img
+*.bin
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Node/npm (in case future use)
+node_modules/
+package-lock.json
+
+# Minikube and cluster configs
+minikube/
+minikube_config.json
