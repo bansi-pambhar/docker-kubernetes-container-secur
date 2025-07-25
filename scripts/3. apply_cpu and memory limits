@@ -1,0 +1,23 @@
+# Applies resource limits to pods in Kubernetes
+
+$yaml = @"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-nginx
+  namespace: development
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.23-alpine
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+"@
+
+$yaml | kubectl apply -f -
+Write-Host "Applied resource limits to secure-nginx pod."
