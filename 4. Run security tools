@@ -1,6 +1,0 @@
-# Scan Docker image with Trivy (must be installed)
-
-$image = "nginx:1.23-alpine"
-
-Write-Host "Scanning Docker image $image with Trivy..."
-trivy image $image
