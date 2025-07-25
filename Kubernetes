@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: development
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: production
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.23-alpine
+          ports:
+            - containerPort: 80
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-nginx
+  namespace: development
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.23-alpine
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
